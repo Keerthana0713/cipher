@@ -1,0 +1,22 @@
+# Divide by 10 technique  
+# if we divide a number by 10 then its rem will be last digit 
+
+# Count Number of Digits Program 
+n = int(input()) 
+c = 0 
+while(n>0):
+    n = n//10 
+    c+=1 
+print(c) 
+--------------------------------------
+Prime number :- we will take the count of the number of factors.
+if the count is equal to 2 it is a prime number else not a prime.
+n = int(input()) # 4 
+c = 0 
+for i in range(1,n+1): 
+    if(n%i==0):
+        c = c+1 
+if(c==2):
+    print("Prime")
+else:
+    print("Not a Prime")
