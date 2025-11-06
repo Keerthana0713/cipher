@@ -1,0 +1,12 @@
+# *** RECURSION *** 
+# function calling itself untill it meets base condition is known as recursion 
+# return :- Go Back to the function call.
+# If there are no lines to execute it goes back to the function call.
+def fun1(x):
+    if(x==0):
+        return 
+    fun1(x-1) 
+    print(x)
+x=3 
+fun1(x) 
+whiteboard link:- https://whiteboard.cloud.microsoft/me/whiteboards/76e7f0db-7cfe-43ce-905a-bc4a8f00ea1a
