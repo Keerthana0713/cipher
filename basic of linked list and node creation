@@ -1,0 +1,13 @@
+# Linked List 
+# 1) single ll 2)doubly ll 3)circular ll 
+
+# In linkedlist we have nodes 
+# Nodes are created by using constructor (__init__) 
+# constructor is used to create instance varibales 
+
+# Code to create a Node: - 
+
+class Node:
+    def __init__(self,val):
+        self.data=val 
+        self.next=None 
