@@ -1,0 +1,8 @@
+# **** FUNCTIONS *******
+# functions are classified into two parts 
+# function defination 
+#function call 
+def fun1():
+    print("hey python")
+print("hey java")
+fun1() 
