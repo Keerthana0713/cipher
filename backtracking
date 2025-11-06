@@ -1,0 +1,78 @@
+generate parathesis:- 
+class Solution:
+    def generate(self,curr_str,ans,Open,Close,n):
+        if(Open==Close and Open+Close==2*n):
+            ans.append(curr_str)
+            return 
+        if(Open>n):
+            return 
+        if(Close>Open):
+            return 
+        self.generate(curr_str+"(",ans,Open+1,Close,n)
+        self.generate(curr_str+")",ans,Open,Close+1,n)
+    def generateParenthesis(self, n: int) -> List[str]:
+        curr_str = ""
+        ans = [] 
+        Open = 0 
+        Close = 0 
+        self.generate(curr_str,ans,Open,Close,n) 
+.............................................................................................................................................................................................................
+        Check if there exists a subsequence with sum K:- 
+class Solution:
+    def check(self,ind,arr,K):
+        if(K==0):
+            return True 
+        if(K<0 or ind==len(arr)):
+            return False 
+        path1 = self.check(ind+1,arr,K-arr[ind]) 
+        if(path1==True):
+            return True 
+        path2 = self.check(ind+1,arr,K)
+        return path1 or path2 
+    def checkSubsequenceSum(self, N, arr, K):
+        # Code here
+        ind = 0 
+        return self.check(ind,arr,K) 
+.................................................................................................................................................................................................
+COMBINATION SUM :- 1  
+# A Number can be taken for unlimited number of times so do not move the index in the take part.
+class Solution:
+    def generate(self,ind,curr_subset,ans,candidates,target):
+        if(target==0):
+            ans.append(curr_subset.copy())
+            return 
+        if(target<0):
+            return 
+        if(ind==len(candidates)):
+            return 
+        curr_subset.append(candidates[ind]) 
+        self.generate(ind,curr_subset,ans,candidates,target-candidates[ind]) 
+        curr_subset.pop() 
+        self.generate(ind+1,curr_subset,ans,candidates,target)
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        ind = 0 
+        curr_subset = []
+        ans = [] 
+        self.generate(ind,curr_subset,ans,candidates,target)
+        return ans 
+...............................................................................................................................................................................................
+whiteboard link :- https://whiteboard.cloud.microsoft/me/whiteboards/1d640b99-31d8-4423-97b5-f52e3b6c31f4
+SUBSEST PROBLEM :- TAKE / NOT TAKE APPROACH .
+class Solution:
+    def generate(self,ind,curr_subset,ans,nums):
+        if(ind==len(nums)):
+            ans.append(curr_subset.copy()) 
+            return 
+        curr_subset.append(nums[ind]) 
+        self.generate(ind+1,curr_subset,ans,nums) 
+        curr_subset.pop() 
+        self.generate(ind+1,curr_subset,ans,nums)
+    def subsets(self, nums):
+        ind = 0 
+        curr_subset = [] 
+        ans = [] 
+        self.generate(ind,curr_subset,ans,nums)
+        return ans  
+ob = Solution()
+nums = [1,2,3] 
+print(ob.subsets(nums)) 
